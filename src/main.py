@@ -1,6 +1,5 @@
 import json
 import logging.config
-import typing
 
 import pandas as pd
 from fastapi import FastAPI, HTTPException
@@ -61,8 +60,8 @@ def create_discrepancy_report(comparison: ComparisonRequest):
         report = compare_pdf_to_database(
             primary_key_value=comparison.company_name, db=db, pdf_data=pdf_data
         )
-    except Exception as e:
-        logger.error(
+    except Exception:
+        logger.exception(
             "Something went wrong: "
             + json.dumps(
                 {
