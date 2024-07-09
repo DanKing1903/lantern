@@ -1,5 +1,4 @@
 import typing
-from decimal import Decimal
 from typing import SupportsFloat, TypeAlias
 
 import numpy as np

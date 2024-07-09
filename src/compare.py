@@ -1,6 +1,6 @@
 import logging
 import typing
-from enum import Enum, auto
+from enum import Enum
 
 import pandas as pd
 
@@ -70,9 +70,9 @@ def find_attribute_value_discrepancies(
             discrepancies.append(
                 {
                     "attributeName": attribute,
-                    f"discrepancyStatus": status,
-                    f"databaseValue": convert_numpy(db_data[attribute]),
-                    f"pdfExtractedValue": convert_numpy(pdf_data[attribute]),
+                    "discrepancyStatus": status,
+                    "databaseValue": convert_numpy(db_data[attribute]),
+                    "pdfExtractedValue": convert_numpy(pdf_data[attribute]),
                 }
             )
     return discrepancies
