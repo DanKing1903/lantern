@@ -19,7 +19,7 @@ repos:
     hooks:
       # Run the linter.
       - id: ruff
-        args: [ --fix ]
+        args: ["check", "--select", "I", "--fix"]
       # Run the formatter.
       - id: ruff-format
   - repo: https://github.com/compilerla/conventional-pre-commit
@@ -41,6 +41,5 @@ repos:
       - id: bandit
         name: bandit
         exclude: ^tests/
-        args:
-          - -r
-          - src
+        additional_dependencies: [ "bandit[toml]" ]
+        args: ["-c", "pyproject.toml", "-r", "src"]
